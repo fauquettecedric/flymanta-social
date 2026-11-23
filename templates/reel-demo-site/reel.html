@@ -1,0 +1,111 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:SG;font-weight:600;src:url(space-grotesk-latin-600-normal.woff2)}
+@font-face{font-family:In;font-weight:400;src:url(inter-latin-400-normal.woff2)}
+@font-face{font-family:In;font-weight:500;src:url(inter-latin-500-normal.woff2)}
+html,body{margin:0;background:#071A21}
+#v{position:relative;width:1080px;height:1920px;overflow:hidden;background:#071A21;color:#F3EEE4;font-family:In,sans-serif}
+.abs{position:absolute}
+h1{font-family:SG;font-weight:600;letter-spacing:-.02em;margin:0}
+.w{display:inline-block;will-change:transform}
+.phone{position:absolute;left:290px;top:600px;width:500px;height:1082px;border-radius:64px;background:#0d0d0d;padding:14px;box-shadow:0 40px 120px rgba(0,0,0,.55),0 0 0 3px #2A6271 inset}
+.screen{position:relative;width:500px;height:1082px;border-radius:52px;overflow:hidden;background:#F3EEE4}
+.screen img{position:absolute;left:0;top:0;width:500px}
+.notch{position:absolute;left:50%;top:26px;transform:translateX(-50%);width:150px;height:40px;border-radius:20px;background:#0d0d0d;z-index:5}
+.chip{position:absolute;padding:22px 34px;border-radius:999px;background:#F3EEE4;color:#071A21;font-family:SG;font-weight:600;font-size:40px;box-shadow:0 18px 50px rgba(0,0,0,.4);white-space:nowrap}
+.chip i{font-style:normal;color:#FF7A45}
+.cap{position:absolute;left:70px;right:70px;top:250px;text-align:center}
+.tap{position:absolute;width:90px;height:90px;border-radius:50%;border:6px solid #F3EEE4;opacity:0}
+.sun{position:absolute;border-radius:50%;background:#FF9466}
+</style></head><body><div id="v">
+<div class="abs" id="bgglow" style="inset:0"></div>
+<div class="sun" id="bigsun" style="width:900px;height:900px;left:90px;top:1500px"></div>
+<svg class="abs" id="waves" style="left:0;bottom:0" width="1080" height="420" viewBox="0 0 1080 420" preserveAspectRatio="none"><path d="M0 110 C220 80 430 86 620 104 C800 122 940 120 1080 104 L1080 420 L0 420Z" fill="#0F3A47"/><path d="M0 200 C260 180 520 186 720 200 C880 212 1000 208 1080 200 L1080 420 L0 420Z" fill="#0B2C36"/></svg>
+
+<!-- hook -->
+<div class="cap" id="hook" style="top:520px">
+  <h1 style="font-size:120px;line-height:1.02"><span class="w">Un</span> <span class="w">roadtrip</span><br><span class="w">en</span> <span class="w">famille</span></h1>
+  <h1 id="hook2" style="font-size:96px;line-height:1.05;margin-top:50px;color:#FF9466"><span class="w">mais</span> <span class="w">par</span> <span class="w">où</span><br><span class="w">commencer</span> <span class="w">?</span></h1>
+</div>
+
+<!-- captions -->
+<div class="cap" id="capB"><h1 style="font-size:76px;line-height:1.05">Dites où, quand<br><span style="color:#FF9466">et avec qui.</span></h1></div>
+<div class="cap" id="capC"><h1 style="font-size:76px;line-height:1.05">Votre itinéraire complet,<br><span style="color:#FF9466">en quelques minutes.</span></h1></div>
+<div class="cap" id="capD"><h1 style="font-size:76px;line-height:1.05">Jour par jour,<br><span style="color:#FF9466">tout est prévu.</span></h1></div>
+
+<!-- phone -->
+<div class="phone" id="phone"><div class="screen" id="screen"><div class="notch"></div>
+  <img id="i1" src="screens/c1.png"><img id="i2" src="screens/c2.png"><img id="i3" src="screens/c3.png"><img id="i4" src="screens/c4.png">
+  <img id="io" src="screens/overview.png"><img id="id" src="screens/detail.png">
+</div></div>
+<div class="tap" id="tap"></div>
+
+<!-- chips -->
+<div class="chip" id="k1" style="left:40px;top:760px"><i>01</i> Départ de Lyon</div>
+<div class="chip" id="k2" style="right:40px;top:960px"><i>02</i> Andalousie, avril</div>
+<div class="chip" id="k3" style="left:40px;top:1160px"><i>03</i> Famille · Road trip</div>
+<div class="chip" id="k4" style="right:40px;top:1360px"><i>04</i> Rythme équilibré</div>
+<div class="chip" id="k5" style="left:30px;top:820px">10 jours · 5 étapes</div>
+<div class="chip" id="k6" style="right:30px;top:1180px">Budget <i>2 480 €</i></div>
+<div class="chip" id="k7" style="left:30px;top:760px">Visites</div>
+<div class="chip" id="k8" style="right:30px;top:1010px">Restos</div>
+<div class="chip" id="k9" style="left:30px;top:1260px">Hébergements</div>
+<div class="chip" id="k10" style="right:30px;top:1510px">Trajets</div>
+
+<!-- end -->
+<div class="abs" id="end" style="inset:0;opacity:0">
+  <img id="manta" src="logo-mark-white.png" style="position:absolute;width:440px;left:320px;top:1010px">
+  <div class="cap" style="top:420px">
+    <h1 id="e1" style="font-size:96px;line-height:1.04">Votre prochain<br>roadtrip<br><span style="color:#FF9466">commence ici.</span></h1>
+    <div id="e2" style="margin-top:46px;font-size:46px;font-weight:500">flymanta.com</div>
+    <div id="e3" style="margin-top:14px;font-size:34px;color:#B9C6C8">Gratuit pendant la bêta</div>
+  </div>
+</div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const C=x=>x<0?0:x>1?1:x, E=x=>1-Math.pow(1-C(x),3), IO=x=>{x=C(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
+const back=x=>{x=C(x);const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const win=(t,a,b,f=.3)=>C((t-a)/f)*(1-C((t-b)/f)); // visible window with fades
+const SC=500/780; // screen scale
+function render(t){
+  // background sun: rises in hook, sinks behind phone, rises big at end
+  const sunY = t<2.6 ? 1500-E(t/1.4)*260 : t<18.6 ? 1240+E((t-2.6)/0.8)*400 : 1640-E((t-18.6)/1.2)*500;
+  $('bigsun').style.top=sunY+'px';
+  $('bgglow').style.background=`radial-gradient(70% 40% at 50% ${sunY/19.2+12}%,rgba(255,148,102,.30),transparent 70%)`;
+  // hook words
+  const hook=$('hook'); hook.style.opacity=1-C((t-2.3)/0.25);
+  document.querySelectorAll('#hook .w').forEach((w,i)=>{const s=i<4?0.1+i*0.14:0.95+(i-4)*0.11;const k=back((t-s)/0.35);w.style.opacity=C((t-s)/0.15);w.style.transform=`translateY(${(1-k)*80}px) scale(${0.6+0.4*k})`});
+  if(t>1.9&&t<2.3){$('hook2').style.transform=`translateX(${Math.sin(t*90)*8}px)`}else $('hook2').style.transform='';
+  // phone entrance / exit
+  const pin=back((t-2.3)/0.55), pout=IO((t-18.2)/0.5);
+  const ph=$('phone'); ph.style.transform=`translateY(${(1-pin)*1400 + pout*1400}px) rotate(${(1-pin)*-8 + Math.sin(t*1.3)*1.2}deg) scale(${t>8.2&&t<18.2?1+0.06*IO((t-8.2)/0.6):1})`;
+  // captions
+  $('capB').style.opacity=win(t,2.5,8.2,.25); $('capB').style.transform=`translateY(${(1-E((t-2.5)/.4))*40}px)`;
+  $('capC').style.opacity=win(t,8.3,13.3,.25); $('capC').style.transform=`translateY(${(1-E((t-8.3)/.4))*40}px)`;
+  $('capD').style.opacity=win(t,13.4,18.2,.25); $('capD').style.transform=`translateY(${(1-E((t-13.4)/.4))*40}px)`;
+  // create steps: c1 2.3-3.9, c2 3.9-5.3, c3 5.3-6.7, c4 6.7-8.3, then overview
+  const steps=[['i1',2.3,3.9],['i2',3.9,5.3],['i3',5.3,6.7],['i4',6.7,8.3]];
+  steps.forEach(([id,a,b],i)=>{const el=$(id);const kin=i===0?1:E((t-a)/0.35);const kout=E((t-b)/0.35);el.style.transform=`translateX(${(1-kin)*500-kout*500}px)`;el.style.display=(t>=a-0.01&&t<b+0.4)?'block':'none'});
+  // tap indicator on Continuer before each swap
+  const taps=[3.6,5.0,6.4,8.0]; const tap=$('tap'); tap.style.opacity=0;
+  taps.forEach(s=>{const k=(t-s)/0.35;if(k>0&&k<1){tap.style.opacity=1-k;tap.style.left=(540-45)+'px';tap.style.top=(600+14+1082-60-45)+'px';tap.style.transform=`scale(${0.6+k})`}});
+  // chips for steps
+  [['k1',2.8,4.1],['k2',4.2,5.5],['k3',5.6,6.9],['k4',7.0,8.1],['k5',9.0,10.6],['k6',10.7,13.1],['k7',14.2,15.3],['k8',15.0,16.1],['k9',15.8,16.9],['k10',16.6,18.0]].forEach(([id,s,e])=>{const k=back((t-s)/0.4);const el=$(id);el.style.opacity=C((t-s)/0.15)*(1-C((t-e)/0.2));el.style.transform=`scale(${k*(1-0.3*C((t-e)/0.2))})`});
+  // overview scroll 8.3-13.4
+  const io=$('io'); io.style.display=(t>=8.0&&t<13.8)?'block':'none';
+  const ok=E((t-8.0)/0.4); const oscroll=IO((t-9.6)/3.3)*(3000*SC);
+  io.style.transform=`translateY(${(1-ok)*1082 - oscroll}px)`;
+  
+  // detail fast scroll 13.4-18.2
+  const idd=$('id'); idd.style.display=(t>=13.2)?'block':'none';
+  const dk=E((t-13.2)/0.4); const dscroll=IO((t-13.8)/4.2)*(3900*SC);
+  idd.style.transform=`translateX(${(1-dk)*500}px) translateY(${-dscroll}px)`;
+  
+  // end
+  const en=$('end'); en.style.opacity=C((t-18.5)/0.3);
+  const m=E((t-18.7)/1.1); $('manta').style.transform=`translate(${(1-m)*-560}px,${(1-m)*140}px)`; $('manta').style.opacity=m;
+  const e1=back((t-18.9)/0.5); $('e1').style.transform=`scale(${0.7+0.3*e1})`; $('e1').style.opacity=C((t-18.9)/0.2);
+  $('e2').style.opacity=C((t-19.5)/0.3); $('e3').style.opacity=C((t-19.8)/0.3);
+}
+window.render=render; render(0);
+</script></body></html>

@@ -1,0 +1,112 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:SG;font-weight:600;src:url(space-grotesk-latin-600-normal.woff2)}
+@font-face{font-family:SG;font-weight:400;src:url(space-grotesk-latin-400-normal.woff2)}
+@font-face{font-family:In;font-weight:400;src:url(inter-latin-400-normal.woff2)}
+@font-face{font-family:In;font-weight:500;src:url(inter-latin-500-normal.woff2)}
+html,body{margin:0;background:#071A21}
+#v{position:relative;width:1080px;height:1920px;overflow:hidden;background:#071A21;color:#F3EEE4;font-family:In,sans-serif}
+.layer{position:absolute;inset:0}
+.sun{position:absolute;border-radius:50%;background:#FF9466}
+.glow{position:absolute;inset:0}
+h1{font-family:SG;font-weight:600;letter-spacing:-.02em;margin:0}
+.tag{font-size:30px;letter-spacing:.16em;text-transform:uppercase;color:#FF9466;font-weight:500}
+.word{display:inline-block}
+.row{position:absolute;left:90px;right:90px;display:flex;gap:34px;align-items:flex-start}
+.row b{font-family:SG;font-weight:600;font-size:34px;color:#FF9466;min-width:150px;padding-top:6px}
+.row h3{margin:0 0 6px;font-family:SG;font-weight:600;font-size:50px}
+.row span{font-size:32px;color:#B9C6C8;line-height:1.3}
+</style></head><body><div id="v">
+
+<!-- Scene 1: hook -->
+<div class="layer" id="s1">
+  <div class="glow" id="g1"></div>
+  <div class="sun" id="sun1" style="left:340px;width:400px;height:400px"></div>
+  <svg style="position:absolute;left:0;bottom:0" width="1080" height="560" viewBox="0 0 1080 560" preserveAspectRatio="none"><path d="M0 150 C220 110 430 116 620 140 C800 164 940 160 1080 140 L1080 560 L0 560Z" fill="#0F3A47"/><path d="M0 270 C260 244 520 250 720 270 C880 286 1000 280 1080 272 L1080 560 L0 560Z" fill="#0B2C36"/></svg>
+  <div style="position:absolute;left:90px;right:90px;top:340px">
+    <div class="tag" id="t1tag">Idée d'itinéraire · en famille</div>
+    <h1 id="t1" style="font-size:118px;line-height:1.02;margin-top:30px"><span class="word">Bretagne</span> <span class="word">nord</span><br><span class="word" style="color:#FF9466">en</span> <span class="word" style="color:#FF9466">6</span> <span class="word" style="color:#FF9466">jours</span></h1>
+  </div>
+</div>
+
+<!-- Scene 2: map -->
+<div class="layer" id="s2" style="opacity:0">
+  <div style="position:absolute;left:90px;right:90px;top:250px">
+    <div class="tag">Bretagne nord · 6 jours</div>
+    <h1 style="font-size:64px;line-height:1.1;margin-top:16px">Le trajet, étape par étape</h1>
+  </div>
+  <svg id="map" style="position:absolute;left:0;top:470px" width="1080" height="560" viewBox="0 0 1080 560">
+    <defs><linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0B2C36"/><stop offset="1" stop-color="#071A21"/></linearGradient></defs>
+    <rect width="1080" height="560" fill="url(#sea)" rx="0"/>
+    <path id="land" fill="#123F4C" stroke="#2A6271" stroke-width="3"/>
+    <g id="routes" fill="none" stroke="#FF9466" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><path id="rt0"/><path id="rt1"/><path id="rt2"/></g>
+    <g id="pins"></g><circle id="head" r="13" fill="#F3EEE4" opacity="0"/>
+  </svg>
+  <div id="rows"></div>
+</div>
+
+<!-- Scene 3: end -->
+<div class="layer" id="s3" style="opacity:0">
+  <div class="glow" style="background:radial-gradient(60% 34% at 50% 62%,rgba(255,148,102,.38),transparent 70%)"></div>
+  <div class="sun" id="sun3" style="left:340px;top:980px;width:400px;height:400px"></div>
+  <svg style="position:absolute;left:0;bottom:0" width="1080" height="560" viewBox="0 0 1080 560" preserveAspectRatio="none"><path d="M0 150 C220 110 430 116 620 140 C800 164 940 160 1080 140 L1080 560 L0 560Z" fill="#0F3A47"/><path d="M0 270 C260 244 520 250 720 270 C880 286 1000 280 1080 272 L1080 560 L0 560Z" fill="#0B2C36"/></svg>
+  <img id="manta" src="logo-mark-white.png" style="position:absolute;width:420px;left:310px;top:830px">
+  <div style="position:absolute;left:90px;right:90px;top:330px;text-align:center">
+    <h1 id="t3" style="font-size:84px;line-height:1.08">Votre itinéraire<br>jour par jour,<br>à votre rythme.</h1>
+    <div id="t3b" style="margin-top:40px;font-size:40px;color:#B9C6C8">Créez le vôtre sur <span style="color:#F3EEE4;font-weight:500">flymanta.com</span></div>
+  </div>
+</div>
+</div>
+<script>
+// projection: lon -4.35..-1.75 -> x 40..1040 ; lat 48.98..48.42 -> y 0..560 (scaled)
+const X=l=>30+(l+4.25)/2.4*1020, Y=a=>40+(48.92-a)*1020/2.4*1.51;
+const coast=[[-4.40,48.66],[-4.18,48.69],[-3.98,48.72],[-3.90,48.67],[-3.84,48.62],[-3.72,48.67],[-3.60,48.69],[-3.53,48.77],[-3.44,48.82],[-3.30,48.84],[-3.15,48.85],[-3.05,48.79],[-2.95,48.70],[-2.82,48.58],[-2.72,48.53],[-2.60,48.58],[-2.45,48.64],[-2.32,48.68],[-2.20,48.62],[-2.10,48.63],[-2.01,48.65],[-1.90,48.69],[-1.70,48.66]];
+function smooth(pts){let d=`M${pts[0][0]} ${pts[0][1]}`;for(let i=0;i<pts.length-1;i++){const p0=pts[i-1]||pts[i],p1=pts[i],p2=pts[i+1],p3=pts[i+2]||p2;d+=` C${p1[0]+(p2[0]-p0[0])/6} ${p1[1]+(p2[1]-p0[1])/6} ${p2[0]-(p3[0]-p1[0])/6} ${p2[1]-(p3[1]-p1[1])/6} ${p2[0]} ${p2[1]}`}return d}
+const cp=coast.map(([l,a])=>[X(l),Y(a)]);
+document.getElementById('land').setAttribute('d',smooth(cp)+` L1100 600 L-20 600 Z`);
+const stops=[
+ {n:'Saint-Malo',d:'J1 – J2',a:'Remparts et plage du Sillon',lon:-2.01,lat:48.645,lx:-40,ly:70},
+ {n:'Cap Fréhel',d:'J3',a:'Falaises, phare et Fort la Latte',lon:-2.32,lat:48.675,lx:-30,ly:-40},
+ {n:'Perros-Guirec',d:'J4 – J5',a:"Sentier des douaniers, Ploumanac'h",lon:-3.44,lat:48.81,lx:60,ly:-40},
+ {n:'Roscoff',d:'J6',a:"Traversée vers l'île de Batz",lon:-3.98,lat:48.71,lx:10,ly:-40}];
+// route waypoints (slightly inland)
+const wp=[[[-2.01,48.645],[-2.14,48.60],[-2.32,48.675]],[[-2.32,48.675],[-2.55,48.57],[-2.78,48.51],[-3.05,48.60],[-3.25,48.72],[-3.44,48.81]],[[-3.44,48.81],[-3.60,48.68],[-3.82,48.60],[-3.98,48.71]]].map(s=>s.map(([l,a])=>[X(l),Y(a)]));
+const segD=wp.map(smooth);
+const pins=document.getElementById('pins');
+stops.forEach((s,i)=>{const x=X(s.lon),y=Y(s.lat);pins.insertAdjacentHTML('beforeend',`<g id="p${i}" opacity="0"><circle cx="${x}" cy="${y}" r="30" fill="#FF9466" opacity=".25" id="pr${i}"/><circle cx="${x}" cy="${y}" r="15" fill="#FF9466" stroke="#071A21" stroke-width="5"/><text x="${x+s.lx}" y="${y+s.ly}" text-anchor="middle" font-family="SG" font-weight="600" font-size="38" fill="#F3EEE4">${s.n}</text></g>`)});
+const rows=document.getElementById('rows');
+stops.forEach((s,i)=>rows.insertAdjacentHTML('beforeend',`<div class="row" id="r${i}" style="top:${1090+i*150}px;opacity:0"><b>${s.d}</b><div><h3>${s.n}</h3><span>${s.a}</span></div></div>`));
+
+const tmp=document.createElementNS('http://www.w3.org/2000/svg','path');document.getElementById('map').appendChild(tmp);
+const segLen=segD.map(d=>{tmp.setAttribute('d',d);return tmp.getTotalLength()});tmp.remove();
+const ease=x=>x<0?0:x>1?1:1-Math.pow(1-x,3);
+const io=(x)=>x<0?0:x>1?1:x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const clamp=x=>x<0?0:x>1?1:x;
+const appear=[3.9,7.4,11.1,14.4], seg=[[5.9,7.4],[9.4,11.1],[12.9,14.4]];
+function render(t){
+  // scene 1
+  const s1=document.getElementById('s1'); s1.style.opacity=1-clamp((t-2.7)/0.5);
+  const r=ease(t/1.6); const sun=document.getElementById('sun1'); sun.style.top=(1560-r*420)+'px';
+  document.getElementById('g1').style.background=`radial-gradient(60% 34% at 50% 68%,rgba(255,148,102,${.38*r}),transparent 70%)`;
+  document.getElementById('t1tag').style.opacity=ease((t-0.2)/0.5);
+  document.querySelectorAll('#t1 .word').forEach((w,i)=>{const k=ease((t-0.35-i*0.16)/0.5);w.style.opacity=k;w.style.transform=`translateY(${(1-k)*60}px)`});
+  // scene 2
+  const s2=document.getElementById('s2'); s2.style.opacity=clamp((t-2.9)/0.5)*(1-clamp((t-16.4)/0.5));
+  let d='';
+  seg.forEach(([a,b],i)=>{const k=io((t-a)/(b-a)); if(k>0){d+=' '+segD[i]}});
+  // draw progressively: build combined path with dasharray
+  const head=document.getElementById('head'); head.setAttribute('opacity',0);
+  seg.forEach(([a,b],i)=>{const el=document.getElementById('rt'+i); el.setAttribute('d',segD[i]); const k=io((t-a)/(b-a)); const L=segLen[i]*k;
+    el.setAttribute('stroke-dasharray',`${L} ${segLen[i]+10}`); el.setAttribute('opacity',k>0?1:0);
+    if(k>0&&k<1){const pt=el.getPointAtLength(L);head.setAttribute('cx',pt.x);head.setAttribute('cy',pt.y);head.setAttribute('opacity',1)}});
+  stops.forEach((s,i)=>{const k=ease((t-appear[i])/0.45);const p=document.getElementById('p'+i);p.setAttribute('opacity',k);
+    const pulse=(t-appear[i])>0?(1+0.5*Math.sin((t-appear[i])*5)):1;document.getElementById('pr'+i).setAttribute('r',22+10*pulse*k);
+    const row=document.getElementById('r'+i);const kr=ease((t-appear[i]-0.1)/0.5);const active=(i===3?t>=appear[3]:(t>=appear[i]&&t<appear[i+1]));
+    row.style.opacity=kr*(active?1:0.45);row.style.transform=`translateX(${(1-kr)*80}px)`});
+  // scene 3
+  const s3=document.getElementById('s3'); const k3=clamp((t-16.4)/0.5); s3.style.opacity=k3;
+  const m=ease((t-16.6)/1.2); const manta=document.getElementById('manta'); manta.style.transform=`translate(${(1-m)*-500}px,${(1-m)*120}px)`; manta.style.opacity=m;
+  const tt=ease((t-17.0)/0.7); document.getElementById('t3').style.opacity=tt; document.getElementById('t3').style.transform=`translateY(${(1-tt)*40}px)`;
+  document.getElementById('t3b').style.opacity=ease((t-17.6)/0.6);
+}
+window.render=render; render(0);
+</script></body></html>
