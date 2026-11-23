@@ -1,0 +1,99 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:SG;font-weight:400;src:url(fonts/space-grotesk-latin-400-normal.woff2)}
+@font-face{font-family:SG;font-weight:600;src:url(fonts/space-grotesk-latin-600-normal.woff2)}
+@font-face{font-family:In;font-weight:400;src:url(fonts/inter-latin-400-normal.woff2)}
+@font-face{font-family:In;font-weight:500;src:url(fonts/inter-latin-500-normal.woff2)}
+body{margin:0;background:#333;display:flex;flex-wrap:wrap;gap:20px;padding:20px}
+.s{position:relative;width:540px;height:675px;overflow:hidden;background:#071A21;color:#F3EEE4;font-family:In,sans-serif;box-sizing:border-box}
+.s.cream{background:#F3EEE4;color:#071A21}
+.glow{position:absolute;inset:0;background:radial-gradient(60% 40% at 50% 88%,rgba(255,148,102,.35),transparent 70%)}
+.sun{position:absolute;border-radius:50%;background:#FF9466}
+.waves{position:absolute;left:0;bottom:0}
+.mark{position:absolute;width:120px}
+h1{font-family:SG;font-weight:600;letter-spacing:-.02em;margin:0}
+.pad{position:absolute;left:44px;right:44px}
+.url{position:absolute;left:44px;bottom:30px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#B9C6C8}
+.cream .url{color:#4B5B60}
+.tag{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#FF9466;font-weight:500}
+.num{font-family:SG;font-weight:600;font-size:120px;line-height:1;color:#FF9466}
+.p{font-size:20px;line-height:1.5;color:#C9D3D4}
+.cream .p{color:#33474D}
+.dots{position:absolute;right:44px;bottom:30px;display:flex;gap:6px}
+.dots i{width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.3}
+.dots i.on{opacity:1;background:#FF9466}
+.stop{display:flex;gap:18px;padding:16px 0;border-bottom:1px solid rgba(7,26,33,.12)}
+.stop b{font-family:SG;font-weight:600;font-size:15px;color:#FF7A45;min-width:72px;letter-spacing:.02em}
+.stop h3{margin:0 0 4px;font-family:SG;font-weight:600;font-size:22px}
+.stop span{font-size:15px;color:#4B5B60}
+</style></head><body>
+
+<!-- POST 1 -->
+<div class="s" id="p1">
+ <div class="glow"></div>
+ <div class="sun" style="left:310px;top:470px;width:180px;height:180px"></div>
+ <svg class="waves" width="540" height="150" viewBox="0 0 540 150" preserveAspectRatio="none"><path d="M0 50 C120 30 240 34 330 48 C420 62 480 60 540 50 L540 150 L0 150Z" fill="#0F3A47"/><path d="M0 92 C130 80 260 84 360 94 C440 102 500 98 540 94 L540 150 L0 150Z" fill="#0B2C36"/></svg>
+ <img class="mark" src="logo-mark-white.png" style="left:300px;top:418px;width:160px">
+ <div class="pad" style="top:56px">
+  <div class="tag">Roadtrip · premier voyage</div>
+  <h1 style="font-size:40px;line-height:1.1;margin-top:18px">Vous rêvez d'un roadtrip, mais vous ne savez pas par où commencer&nbsp;?</h1>
+  <p class="p" style="margin-top:22px;max-width:300px">On vous prépare l'itinéraire jour par jour. Vous n'avez plus qu'à partir.</p>
+ </div>
+ <div class="url" style="color:#F3EEE4">flymanta.com</div>
+</div>
+
+<!-- POST 2 carousel -->
+<div class="s" id="c1">
+ <div class="glow"></div>
+ <div class="sun" style="left:175px;top:470px;width:190px;height:190px"></div>
+ <svg class="waves" width="540" height="130" viewBox="0 0 540 130" preserveAspectRatio="none"><path d="M0 40 C120 24 260 26 360 40 C440 52 500 50 540 42 L540 130 L0 130Z" fill="#0F3A47"/><path d="M0 80 C130 70 260 72 360 82 C440 90 500 86 540 82 L540 130 L0 130Z" fill="#0B2C36"/></svg>
+ <div class="pad" style="top:64px">
+  <div class="tag">Conseils · premier roadtrip</div>
+  <h1 style="font-size:52px;line-height:1.04;margin-top:18px">Premier roadtrip en famille&nbsp;:<br><span style="color:#FF9466">3 règles</span> qui changent tout</h1>
+  <p class="p" style="margin-top:22px">Faites défiler →</p>
+ </div>
+ <div class="dots" style="color:#F3EEE4"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+</div>
+
+<div class="s cream" id="c2"><div class="pad" style="top:64px">
+ <div class="num">1</div>
+ <h1 style="font-size:40px;line-height:1.1;margin-top:20px">Pas plus de 3&nbsp;h de route par jour</h1>
+ <p class="p" style="margin-top:22px">Au-delà, les enfants décrochent… et les parents aussi. Sur les longs trajets, prévoyez une pause toutes les 2&nbsp;heures.</p>
+</div><div class="sun" style="right:-70px;bottom:-70px;width:200px;height:200px;opacity:.9"></div><div class="url">flymanta.com</div><div class="dots" style="right:150px"><i></i><i class="on"></i><i></i><i></i><i></i></div></div>
+
+<div class="s cream" id="c3"><div class="pad" style="top:64px">
+ <div class="num">2</div>
+ <h1 style="font-size:40px;line-height:1.1;margin-top:20px">Au moins 2&nbsp;nuits au même endroit</h1>
+ <p class="p" style="margin-top:22px">Refaire les valises chaque soir épuise tout le monde. Deux nuits, c'est une vraie journée pour profiter sans regarder la montre.</p>
+</div><div class="sun" style="right:-70px;bottom:-70px;width:200px;height:200px;opacity:.9"></div><div class="url">flymanta.com</div><div class="dots" style="right:150px"><i></i><i></i><i class="on"></i><i></i><i></i></div></div>
+
+<div class="s cream" id="c4"><div class="pad" style="top:64px">
+ <div class="num">3</div>
+ <h1 style="font-size:40px;line-height:1.1;margin-top:20px">Gardez une demi-journée libre</h1>
+ <p class="p" style="margin-top:22px">Une plage découverte par hasard, une sieste, un orage… Le bon programme, c'est celui qui laisse de la place à l'imprévu.</p>
+</div><div class="sun" style="right:-70px;bottom:-70px;width:200px;height:200px;opacity:.9"></div><div class="url">flymanta.com</div><div class="dots" style="right:150px"><i></i><i></i><i></i><i class="on"></i><i></i></div></div>
+
+<div class="s" id="c5">
+ <div class="glow"></div>
+ <div class="sun" style="left:175px;top:430px;width:190px;height:190px"></div>
+ <svg class="waves" width="540" height="150" viewBox="0 0 540 150" preserveAspectRatio="none"><path d="M0 50 C120 30 240 34 330 48 C420 62 480 60 540 50 L540 150 L0 150Z" fill="#0F3A47"/><path d="M0 92 C130 80 260 84 360 94 C440 102 500 98 540 94 L540 150 L0 150Z" fill="#0B2C36"/></svg>
+ <img class="mark" src="logo-mark-white.png" style="left:150px;top:370px;width:200px">
+ <div class="pad" style="top:80px;text-align:center">
+  <h1 style="font-size:40px;line-height:1.12">Votre itinéraire<br>jour par jour,<br>à votre rythme.</h1>
+  <p class="p" style="margin-top:20px">Gratuit pendant la bêta · lien en bio</p>
+ </div>
+ <div class="dots" style="color:#F3EEE4"><i></i><i></i><i></i><i></i><i class="on"></i></div>
+</div>
+
+<!-- POST 3 itinerary -->
+<div class="s cream" id="p3"><div class="pad" style="top:48px">
+ <div class="tag" style="color:#FF7A45">Idée d'itinéraire · en famille</div>
+ <h1 style="font-size:42px;line-height:1.05;margin-top:12px">Bretagne nord<br>en 6 jours</h1>
+ <div style="margin-top:22px">
+  <div class="stop"><b>J1 – J2</b><div><h3>Saint-Malo</h3><span>Tour des remparts, plage du Sillon à marée basse</span></div></div>
+  <div class="stop"><b>J3</b><div><h3>Cap Fréhel</h3><span>Falaises, phare et Fort la Latte à côté</span></div></div>
+  <div class="stop"><b>J4 – J5</b><div><h3>Perros-Guirec</h3><span>Sentier des douaniers, rochers roses de Ploumanac'h</span></div></div>
+  <div class="stop" style="border:0"><b>J6</b><div><h3>Roscoff</h3><span>Traversée vers l'île de Batz, à vélo sur l'île</span></div></div>
+ </div>
+</div><div class="url">Créez le vôtre · flymanta.com</div></div>
+
+</body></html>
